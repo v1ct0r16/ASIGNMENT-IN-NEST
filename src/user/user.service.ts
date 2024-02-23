@@ -1,22 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { Userentity } from 'src/entities/user.entities';
-// import { User } from 'src/interface/user.interface';
+import { Userentity } from '../entities/user.entities';
 import { UserController } from './user.controller';
 import { Repository } from 'typeorm';
-// import { Cat } from './interfaces/cat.interface';
+import { InjectRepository } from '@nestjs/typeorm';
+import { User } from '../interface/user.interface';
+
 
 @Injectable()
 export class UserService {
-  private readonly users: Userentity[] = [];
-
-  createUser(user: Userentity){
- return this.users.push(user);
- 
-  }
-
-  findAll(): Userentity[] {
-    return this.users;
-  }
+  constructor(@InjectRepository(Userentity) userRepository:Repository<Userentity>){}
 }
 
 // @Injectable()
