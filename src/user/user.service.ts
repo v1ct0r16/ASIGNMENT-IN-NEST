@@ -5,10 +5,8 @@ import { UserEntity } from "src/entities/user.entities";
 
 
 @Injectable()
-export class ProductService {
+export class UserService {
     [x: string]: any;
-
-   
     constructor(
         @InjectRepository(UserEntity)
         private ProductRepository: Repository<UserEntity>,

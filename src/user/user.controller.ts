@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { UserService } from './user.service';
 // import { User } from 'src/interface/user.interface';
-import { Userentity } from 'src/entities/user.entities';
+import { UserEntity } from 'src/entities/user.entities';
 
 
 @Controller('user')
@@ -10,13 +10,13 @@ export class UserController {
   
 
   @Get('findUser')
-  async findAll(): Promise<Userentity[]> {
+  async findAll(): Promise<UserEntity[]> {
     return this.userService.findAll();
   }
 
   @Post('createUser')
   // @UsePipes(new ValidationPipe())
-  async createUser(@Body() user: Userentity){
+  async createUser(@Body() user: UserEntity){
     return this.userService.createUser(user);
   }
 
