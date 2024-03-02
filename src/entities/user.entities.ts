@@ -1,16 +1,20 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm"
 
 @Entity()
-export class Userentity {
-  @PrimaryGeneratedColumn()
-  id: number;
+export class UserEntity{
+    @PrimaryGeneratedColumn()
+    id : number
 
-  @Column()
-  firstName: string;
+    @CreateDateColumn()
+    date :Date
+    
+    @Column()
+    name : string
 
-  @Column()
-  lastName: string;
+    @Column()
+    brand: string
 
-  @Column({ default: true })
-  isActive: boolean;
+    @Column()
+    price: number
+
 }
