@@ -12,9 +12,7 @@ export class UserEntity{
     name : string
 
     @Column()
-    brand: string
+    age: number
 
-    @Column()
-    price: number
 
 }

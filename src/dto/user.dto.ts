@@ -3,11 +3,11 @@ export class UserDto {
     @IsNotEmpty()
     @MinLength(3,{message:'Name must not be less than 3 characters'})
     @MaxLength(15,{message:'Name must not be more than 15 characters'})
-    Firstname: string;
+    name: string;
 
     @IsNotEmpty()
     @IsString()
-    lastbrand: string;
+    date: any
 
     @IsNotEmpty()
     @IsNumber()
