@@ -7,14 +7,16 @@ import { UserEntity } from "src/entities/user.entities";
 @Injectable()
 export class UserService {
     [x: string]: any;
+
+   
     constructor(
         @InjectRepository(UserEntity)
-        private ProductRepository: Repository<UserEntity>,
+        private UserRepository: Repository<UserEntity>,
     ){}
 
     //Add product
     async addProduct(payload){
-        const add = this.ProductRepository.create(payload);
+        const add = this.UserRepository.create(payload);
         return this.ProductRepository.save(add);
     }
 
@@ -49,7 +51,7 @@ if(!find) {
     //this Error will be thrown if no such product id is not found in our database
     throw new HttpException('Product not found', 404); // it will be a  404 eroor, meaning not found
 }
-await this.ProductRepository.delete(id);
+await this.UserRepository.delete(id);
 return {
     statusCode: 200,
     message: 'Product deleted successfully',
@@ -72,8 +74,8 @@ async findAll() {
 //Update product by name
 async updateProductByName(
     name: string,
-    payload: Partial<UserEntity>,
-): Promise<UserEntity> {
+    payload: Partial<productEntity>,
+): Promise<productEntity> {
     const product = await this.ProductRepository.findOne({ where: { name } });
     if (!product) {
         throw new HttpException('Product not found', 404); // it will be a  404 eroor, meaning not found
@@ -97,3 +99,4 @@ async updateProduct(id, Payload) {
     }
     }
 }
+
